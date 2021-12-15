@@ -1,0 +1,60 @@
+{
+  "public": {
+    "siteName": "[DEV] Great Puzzle Hunt",
+    "siteURL": "http://localhost:3000",
+    "contact": {
+      "phone": "(206) 395-9633",
+      "supportEmail": "support@greatpuzzlehunt.com"
+    },
+    "accountsEmail": "Great Puzzle Hunt <accounts@greatpuzzlehunt.com>",
+    "infoEmail": "Great Puzzle Hunt <info@greatpuzzlehunt.com>",
+    "eventYear": "2021",
+    "eventDay": "Saturday",
+    "eventDate": "April 17, 2021",
+    "registrationOpenDate": "Tuesday, January 5, 2021",
+    "registrationCloseDate": "April 15, 2021",
+    "earlyBirdLastDate": "March 15, 2021",
+    "regularRegistrationStart": "January 5, 2021",
+    "regularRegistrationEnd": "April 15, 2021",
+    "gearSaleEnd": "April 18, 2021",
+    "social": {
+      "facebook": "https://facebook.com/greatpuzzlehunt"
+    },
+    "analyticsSettings": {
+      "Google Analytics": {
+        "trackingId": ""
+      }
+    }
+  },
+  "admin": {
+    "firstname": "Noah",
+    "lastname": "S",
+    "email": "support@greatpuzzlehunt.com",
+    "password": "testtest",
+    "roles": [
+      "user",
+      "volunteer",
+      "player",
+      "admin"
+    ],
+    "address": "516 High Street",
+    "city": "Bellingham",
+    "state": "WA",
+    "zip": "98225",
+    "age": 26,
+    "phone": "5552223333",
+    "accountType": "VOLUNTEER",
+    "photoPermission": true,
+    "holdHarmless": true,
+    "ecName": "Emergency Contact",
+    "ecRelationship": "friend",
+    "ecPhone": "5558889999",
+    "ecEmail": "ec.friend@email.com",
+    "paid": true,
+    "ticketUsed": null
+  },
+  "accounts": {
+    "fromEmail": "Great Puzzle Hunt (Dev)<accounts@greatpuzzlehunt.com>",
+    "token": "test_token"
+  }
+}

@@ -1,0 +1,116 @@
+@import './variables.less';
+
+html,
+html > body,
+html.ios,
+html.ios > body,
+div#react-root,
+div#app-root {
+  position: relative;
+  background-image: url('../../../img/pattern-small.png') !important;
+  font-size: 12pt;
+  background-repeat: repeat !important;
+}
+
+html,
+html > body,
+html.ios,
+html.ios > body,
+div#react-root,
+div#app-root {
+  height: 100% !important;
+}
+
+div#app-root {
+    padding-top: 71px;
+}
+
+body {
+  overflow-x: hidden;
+}
+.container.section {
+  padding-bottom: 20px;
+  background-color: white;
+  box-shadow: 0px 5px 8px -2px rgba(0, 0, 0, 0.2);
+}
+
+.gearitem {
+  display: none;
+}
+
+.text-center {
+    text-align: center;
+}
+.text-left {
+    text-align: left;
+}
+.text-right {
+    text-align: right;
+}
+
+.no-padding {
+  padding: 0 !important;
+}
+
+.wwu-btn {
+    background-color: @wwu-green !important;
+    color: @wwu-blue !important;
+
+    &:hover {
+        background-color: darken(@wwu-green, 5%) !important;
+    }
+}
+
+@media all and (max-width: @desktop-min) {
+  .hide-on-mobile {
+    display: none !important;
+  }
+}
+
+.segment.no-border-radius {
+  border-radius: 0 !important;
+}
+
+/**********/
+/* COLORS */
+/**********/
+.wwu-blue {
+    color: @wwu-blue !important;
+}
+
+.facebook-blue {
+    color: #304d8a !important;
+}
+
+.dark-blue:not(.column) {
+  color: @dark-blue !important;
+}
+
+.ui.white.button {
+  background-color: #fff;
+  color: @dark-blue;
+  &:hover {
+    color: @dark-blue;
+    background-color: darken(@white, 10%);
+  }
+}
+
+.ui.dark-blue.button {
+  background-color: @dark-blue;
+  color: #fff !important;
+
+  &:hover {
+    background-color: darken(@dark-blue, 10%);
+    color: #fff !important;
+  }
+}
+
+.red-text {
+  color: @redTextColor;
+}
+.blue-text {
+  color: @blueTextColor;
+}
+.green-text {
+  color: @greenTextColor;
+}
