@@ -1,4 +1,4 @@
-import { browserHistory } from 'react-router';
+// import { browserHistory } from 'react-router';
 
 Accounts.onLogin(() => {
   const path = browserHistory.getCurrentLocation().pathname;

@@ -1,6 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import React, { Component } from 'react';
-import Scrollchor from 'react-scrollchor';
+import { Scrollchor } from 'react-scrollchor';
 import YouTube from 'react-youtube';
 import { Grid, Container, Segment, Icon, Message, Button } from 'semantic-ui-react';
 import moment from 'moment';
@@ -41,7 +41,8 @@ class HomeHeader extends Component {
   updateDimensions() {
     this.forceUpdate();
   }
-  render() {
+    render() {
+	console.log('in HomeHeader');
     let videoHeight = Math.max(700, window.innerWidth * 9 / 16);
     let videoWidth = videoHeight * 16 / 9;
 
@@ -130,6 +131,7 @@ class HomeHeader extends Component {
       />
     );
 
+      console.log('in HomeHeader _linkButtons');
     return (
       <div>
         <div style={{position: "relative", bottom: "0", width:"100%", display: "flex", justifyContent: "center"}}>

@@ -1,73 +1,79 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
-// import { Router, Route, browserHistory, IndexRoute } from 'react-router';
+import { BrowserRouter, Switch, Route, Routes } from 'react-router-dom';
 import makeAuthed from '../components/app/imports/make-authed.js';
+import App from '../components/app/App';
 
-export const renderRoutes = () => (
-  <BrowserRouter>
+export const renderRoutes = () => {
+    console.log('in renderRoutes');
+    return (
+	<BrowserRouter>
+	    <Routes>
 
-    <Route path='/' component={App}>
+		<Route path='/' element={<App />}>
 
-      {/* Home/Public Routes */}
-      <Route exact path='/' component={Home}/>
-      <Route path='teams-list' component={PublicTeamList}/>
-      <Route path='Media' component={Media}/>
-      <Route path='Gear' component={Gear} />
-      <Route path='contact' component={Contact}/>
-      <Route path='puzzles' component={SamplePuzzles}/>
-      <Route path='faq' component={FAQ}/>
-      <Route path='qrcode' component={QRCode}/>
-      <Route path='register' component={Register}/>
-      <Route path='rules' component={ RulesOfPlay }/>
-      <Route path='leaderboard' component={AdminLeaderboard} />
+		    {/* Home/Public Routes */}
+		    <Route index element={<Home />}/>
+		    <Route path='teams-list' element={<PublicTeamList />}/>
+		    <Route path='Media' element={<Media />}/>
+		    <Route path='Gear' element={<Gear />} />
+		    <Route path='contact' element={<Contact />}/>
+		    <Route path='puzzles' element={<SamplePuzzles />}/>
+		    <Route path='faq' element={<FAQ />}/>
+		    <Route path='qrcode' element={<QRCode />}/>
+		    <Route path='register' element={<Register />}/>
+		    <Route path='rules' element={ <RulesOfPlay /> }/>
+		    <Route path='leaderboard' element={<AdminLeaderboard />} />
 
-      {/* Authentication Routes */}
-      <Route path='login' component={Login}/>
-      <Route path='requestpasswordreset' component={RequestPasswordReset}/>
-      <Route path='passwordreset/:token' component={PasswordReset}/>
-      <Route path='redeem' component={RedeemTicket}/>
+		    {/* Authentication Routes */}
+		    <Route path='login' element={<Login />}/>
+		    <Route path='requestpasswordreset' element={RequestPasswordReset}/>
+		    <Route path='passwordreset/:token' element={PasswordReset}/>
+		    <Route path='redeem' element={RedeemTicket}/>
 
-      {/* User Routes */}
-      <Route path='profile' component={Profile}/>
+		    {/* User Routes */}
+		    <Route path='profile' element={Profile}/>
 
-      {/* Game Routes */}
-      <Route path='game' component={makeAuthed('user')}>
-        <Route exact path='game' component={ Game }/>
-      </Route>
+		    {/* Game Routes */}
+		    <Route path='game' element={makeAuthed('user')}>
+			<Route index element={ Game }/>
+		    </Route>
 
-      {/* Team Routes */}
-      <Route path='team' component={makeAuthed('user')}>
-        <Route exact path='team' component={Team}/>
-        <Route path='create' component={TeamCreator}/>
-        <Route path='join' component={TeamBrowser}/>
-        <Route path='checkin' component={TeamCheckin}/>
-      </Route>
+		    {/* Team Routes */}
+		    <Route path='team' element={makeAuthed('user')}>
+			<Route index element={Team}/>
+			<Route path='create' element={TeamCreator}/>
+			<Route path='join' element={TeamBrowser}/>
+			<Route path='checkin' element={TeamCheckin}/>
+		    </Route>
 
-      <Route path='looking-for-team' component={makeAuthed('user')}>
-        <Route exact path='looking-for-team' component={ LookingForTeam }/>
-      </Route>
+		    <Route path='looking-for-team' element={makeAuthed('user')}>
+			<Route index element={ LookingForTeam }/>
+		    </Route>
 
-      {/* Volunteer Routes */}
-      <Route path='volunteer' component={makeAuthed('volunteer')}>
-        <Route exact path='volunteer' component={ Volunteer }/>
-        <Route path='time/:teamId/:puzzleId' component={VolunteerTimer}/>
-        <Route path='/game-progress' component={GameProgress}/>
+		    {/* Volunteer Routes */}
+		    <Route path='volunteer' element={makeAuthed('volunteer')}>
+			<Route index element={ Volunteer }/>
+			<Route path='time/:teamId/:puzzleId' element={VolunteerTimer}/>
+			<Route path='game-progress' element={GameProgress}/>
 
-        <Route path='checkin/:teamId' component={VolunteerTeamCheckIn}/>
-      </Route>
+			<Route path='checkin/:teamId' element={VolunteerTeamCheckIn}/>
+		    </Route>
 
-      {/* Admin Routes */}
-      <Route path='admin' component={makeAuthed('admin')}>
-        <Route exact path='admin' component={AdminUsers} />
-        <Route path='users' component={AdminUsers} />
-        <Route path='teams' component={AdminTeams} />
-        <Route path='transactions' component={AdminTransactions} />
-        <Route path='sponsors' component={AdminSponsors} />
-        <Route path='puzzles' component={AdminPuzzles} />
-        <Route path='gamestate' component={AdminGamestate} />
-      </Route>
+		    {/* Admin Routes */}
+		    <Route path='admin' element={makeAuthed('admin')}>
+			<Route index element={AdminUsers} />
+			<Route path='users' element={AdminUsers} />
+			<Route path='teams' element={AdminTeams} />
+			<Route path='transactions' element={AdminTransactions} />
+			<Route path='sponsors' element={AdminSponsors} />
+			<Route path='puzzles' element={AdminPuzzles} />
+			<Route path='gamestate' element={AdminGamestate} />
+		    </Route>
 
-      <Route path='*' component={Home}/>
-    </Route>
-  </BrowserRouter>
-);
+		    <Route path='*' element={<Home />}/>
+		</Route>
+
+            </Routes>
+	</BrowserRouter>
+    );
+}

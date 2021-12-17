@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Link, browserHistory } from 'react-router';
+import { Link, browserHistory } from 'react-router-dom';
 import { Header, Grid, Segment, Form, Message } from 'semantic-ui-react';
 
 const PASSWORD_MIN_LENGTH = 6;

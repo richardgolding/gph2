@@ -1,5 +1,5 @@
 import { Meteor } from 'meteor/meteor';
-import { Link, browserHistory } from 'react-router';
+import { Link, browserHistory } from 'react-router-dom';
 import { withTracker } from 'meteor/react-meteor-data';
 import React, { Component } from 'react';
 import { Container } from 'semantic-ui-react';

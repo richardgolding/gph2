@@ -1,6 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import React, { Component } from 'react';
-import { Link, browserHistory } from 'react-router';
+import { Link, browserHistory } from 'react-router-dom';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Icon, Segment, Container } from 'semantic-ui-react';
 import Scrollchor from 'react-scrollchor';
@@ -116,14 +116,15 @@ const volunteerMenuItems = [
   },
 ];
 
-TopBar = class TopBar extends Component {
+export default TopBar = class TopBar extends Component {
   updateDimensions() {
     this.forceUpdate();
   }
   isSmall() {
     return window.innerWidth < 1100; 
   }
-  render() {
+    render() {
+	console.log('in TopBar');
     return (
       <div>
         {this._renderTopBar()}
