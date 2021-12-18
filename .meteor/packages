@@ -25,13 +25,10 @@ accounts-base
 accounts-password
 email
 littledata:synced-cron
-cfs:gridfs
 percolate:migrations
-cfs:filesystem
 froatsnook:valid-email
 meteorhacks:picker
 okgrow:analytics
-cfs:standard-packages
 
 audit-argument-checks
 blaze-html-templates
