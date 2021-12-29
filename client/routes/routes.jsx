@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route, Routes } from 'react-router-dom';
-import makeAuthed from '../components/app/imports/make-authed.js';
+import RequireAuth from '../components/app/imports/RequireAuth.js';
 import App from '../components/app/App';
 
 export const renderRoutes = () => {
@@ -34,41 +34,39 @@ export const renderRoutes = () => {
 		    <Route path='profile' element={Profile}/>
 
 		    {/* Game Routes */}
-		    <Route path='game' element={makeAuthed('user')}>
-			<Route index element={ Game }/>
-		    </Route>
+		    <Route path='game' element={<RequireAuth accessLevel='user'><Game /></RequireAuth>} />
+			{/* <Route index element={ Game }/> */}
+		    {/* </Route> */}
 
 		    {/* Team Routes */}
-		    <Route path='team' element={makeAuthed('user')}>
-			<Route index element={Team}/>
-			<Route path='create' element={TeamCreator}/>
-			<Route path='join' element={TeamBrowser}/>
-			<Route path='checkin' element={TeamCheckin}/>
+		    <Route path='team'>
+				<Route index element={<RequireAuth accessLevel='user'><Team /></RequireAuth>}/>
+				<Route path='create' element={<RequireAuth accessLevel='user'><TeamCreator /></RequireAuth>}/>
+				<Route path='join' element={<RequireAuth accessLevel='user'><TeamBrowser /></RequireAuth>}/>
+				<Route path='checkin' element={<RequireAuth accessLevel='user'><TeamCheckin /></RequireAuth>}/>
 		    </Route>
 
-		    <Route path='looking-for-team' element={makeAuthed('user')}>
-			<Route index element={ LookingForTeam }/>
-		    </Route>
+		    <Route path='looking-for-team' element={<RequireAuth accessLevel='user'><LookingForTeam /></RequireAuth>} />
 
 		    {/* Volunteer Routes */}
-		    <Route path='volunteer' element={makeAuthed('volunteer')}>
-			<Route index element={ Volunteer }/>
-			<Route path='time/:teamId/:puzzleId' element={VolunteerTimer}/>
-			<Route path='game-progress' element={GameProgress}/>
-
-			<Route path='checkin/:teamId' element={VolunteerTeamCheckIn}/>
+		    <Route path='volunteer'>
+				<Route index element={<RequireAuth accessLevel='volunteer'><Volunteer /></RequireAuth> }/>
+				<Route path='time/:teamId/:puzzleId' element={<RequireAuth accessLevel='volunteer'><VolunteerTimer /></RequireAuth>}/>
+				<Route path='game-progress' element={<RequireAuth accessLevel='volunteer'><GameProgress /></RequireAuth>}/>
+				<Route path='checkin/:teamId' element={<RequireAuth accessLevel='volunteer'><VolunteerTeamCheckIn /></RequireAuth>}/>
 		    </Route>
 
 		    {/* Admin Routes */}
-		    <Route path='admin' element={makeAuthed('admin')}>
-			<Route index element={AdminUsers} />
-			<Route path='users' element={AdminUsers} />
-			<Route path='teams' element={AdminTeams} />
-			<Route path='transactions' element={AdminTransactions} />
-			<Route path='sponsors' element={AdminSponsors} />
-			<Route path='puzzles' element={AdminPuzzles} />
-			<Route path='gamestate' element={AdminGamestate} />
+		    <Route path='admin'>
+				<Route index element={<RequireAuth accessLevel='admin'><AdminUsers /></RequireAuth>} />
+				<Route path='users' element={<RequireAuth accessLevel='admin'><AdminUsers /></RequireAuth>} />
+				<Route path='teams' element={<RequireAuth accessLevel='admin'><AdminTeams /></RequireAuth>} />
+				<Route path='transactions' element={<RequireAuth accessLevel='admin'><AdminTransactions /></RequireAuth>} />
+				<Route path='sponsors' element={<RequireAuth accessLevel='admin'><AdminSponsors /></RequireAuth>} />
+				<Route path='puzzles' element={<RequireAuth accessLevel='admin'><AdminPuzzles /></RequireAuth>} />
+				<Route path='gamestate' element={<RequireAuth accessLevel='admin'><AdminGamestate /></RequireAuth>} />
 		    </Route>
+			
 
 		    <Route path='*' element={<Home />}/>
 		</Route>
