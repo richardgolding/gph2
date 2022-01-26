@@ -5,7 +5,6 @@ const { eventYear } = Meteor.settings.public;
 
 export default Footer = class Footer extends Component {
     render() {
-	console.log('in Footer');
     return (
       <div className="ui basic small container segment center aligned">
         <div className="ui three column grid">

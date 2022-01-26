@@ -41,8 +41,7 @@ class HomeHeader extends Component {
   updateDimensions() {
     this.forceUpdate();
   }
-    render() {
-	console.log('in HomeHeader');
+  render() {
     let videoHeight = Math.max(700, window.innerWidth * 9 / 16);
     let videoWidth = videoHeight * 16 / 9;
 
@@ -131,7 +130,6 @@ class HomeHeader extends Component {
       />
     );
 
-      console.log('in HomeHeader _linkButtons');
     return (
       <div>
         <div style={{position: "relative", bottom: "0", width:"100%", display: "flex", justifyContent: "center"}}>

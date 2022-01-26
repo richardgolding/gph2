@@ -125,8 +125,7 @@ export default TopBar = class TopBar extends Component {
   isSmall() {
     return window.innerWidth < 1100; 
   }
-    render() {
-	console.log('in TopBar');
+  render() {
     return (
       <div>
         {this._renderTopBar()}

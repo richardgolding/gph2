@@ -14,7 +14,6 @@ export default App = class App extends Component {
     }
     
     render() {
-	console.log('in App');
 	return (
 	    <div id="app-root">
 		<TopBar />
