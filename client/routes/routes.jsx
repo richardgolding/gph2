@@ -1,11 +1,33 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route, Routes } from 'react-router-dom';
+import { useLayoutEffect, useState } from "react";
+import { Router, Switch, Route, Routes } from 'react-router-dom';
 import RequireAuth from '../components/app/imports/RequireAuth.js';
 import App from '../components/app/App';
 
+import { browserHistory } from '../history';
+
+{/* Custom Router: https://stackoverflow.com/a/70000286 */}
+const CustomRouter = ({ history, ...props }) => {
+  const [state, setState] = useState({
+    action: history.action,
+    location: history.location
+  });
+
+  useLayoutEffect(() => history.listen(setState), [history]);
+
+  return (
+    <Router
+      {...props}
+      location={state.location}
+      navigationType={state.action}
+      navigator={history}
+    />
+  );
+};
+
 export const renderRoutes = () => {
   return (
-  <BrowserRouter>
+  <CustomRouter history={browserHistory}>
     <Routes>
     <Route path='/' element={<App />}>
 
@@ -66,6 +88,6 @@ export const renderRoutes = () => {
         <Route path='*' element={<Home />}/>
       </Route>
     </Routes>
-  </BrowserRouter>
+  </CustomRouter>
     );
 }
